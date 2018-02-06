@@ -67,9 +67,9 @@ namespace JiraBot.MessageHandlers
                     return new ThumbnailCard(
                         subtitle: issue.Key.ToString() + ": " + issue.Summary,
                         text: string.Format(Resources.JiraCardTitle,
-                            issue.Type.Name,
-                            issue.Priority.Name,
-                            issue.Status.Name,
+                            issue.Type.IconUrl, issue.Type.Name,
+                            issue.Priority.IconUrl, issue.Priority.Name,
+                            issue.Status.IconUrl,
                             issue.Assignee)).ToAttachment();
                 }).ToList();
 
