@@ -1,0 +1,1 @@
+﻿<strong>Type:</strong> {0}    <strong>Priority:</strong> {1}    <strong>Status:</strong> {2}    <strong>Assignee:</strong> {3}
