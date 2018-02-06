@@ -138,6 +138,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MessageHandlers\CardActionTypes.cs" />
     <Compile Include="MessageHandlers\IMessageHandler.cs" />
     <Compile Include="MessageHandlers\JiraSearcher.cs" />
     <Compile Include="MessageHandlers\MessageHandlersHub.cs" />
