@@ -67,15 +67,15 @@ namespace JiraBot.MessageHandlers
                     return new ThumbnailCard(
                         subtitle: issue.Key.ToString() + ": " + issue.Summary,
                         text: string.Format(Resources.JiraCardTitle,
-                            issue.Type.IconUrl, issue.Type.Name,
-                            issue.Priority.IconUrl, issue.Priority.Name,
-                            issue.Status.IconUrl,
+                            issue.Type.Name,
+                            issue.Priority.Name,
+                            issue.Status.Name,
                             issue.Assignee)).ToAttachment();
                 }).ToList();
 
                 var reply = activity.CreateReply();
 
-                reply.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+                reply.AttachmentLayout = AttachmentLayoutTypes.List;
                 reply.Attachments = thumbnailCards;
 
                 await context.PostAsync(reply);
