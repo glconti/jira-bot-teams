@@ -65,19 +65,17 @@ namespace JiraBot.MessageHandlers
                     if (issue == null) new ThumbnailCard(subtitle: search.Ticket, text: "Not found").ToAttachment();
 
                     var issueNumber = issue.Key.ToString();
+                    var issueUrl = issue.Jira.Url + "browse/" + issueNumber;
+
                     var thumbnailCard = new ThumbnailCard(
                         subtitle: issueNumber + ": " + issue.Summary,
                         text: string.Format(Resources.JiraCardTitle,
                             issue.Type.Name,
                             issue.Priority.Name,
                             issue.Status.Name,
-                            issue.Assignee));
+                            issue.Assignee,
+                            issueUrl));
 
-                    var issueUrl = issue.Jira.Url + "browse/" + issueNumber;
-                    thumbnailCard.Buttons = new List<CardAction>
-                    {
-                        new CardAction(CardActionTypes.OpenUrl, "Open", value:issueUrl)
-                    };
                     return thumbnailCard.ToAttachment();
                 }).ToList();
 
