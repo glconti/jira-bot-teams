@@ -71,8 +71,8 @@ namespace JiraBot.MessageHandlers
                         subtitle: issueNumber + ": " + issue.Summary,
                         text: string.Format(Resources.JiraCardTitle,
                             issue.Type.Name,
-                            issue.Priority.Name,
                             issue.Status.Name,
+                            issue.Priority.Name,
                             issue.Assignee,
                             issueUrl));
 
