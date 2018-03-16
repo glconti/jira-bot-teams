@@ -1,0 +1,40 @@
+{
+    "$schema": "https://statics.teams.microsoft.com/sdk/v1.1/manifest/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.1",
+    "version": "1.0.0",
+    "id": "c66cbebf-6b4f-4bea-ac64-17a2f236556c",
+    "packageName": "jira.help",
+    "developer": {
+        "name": "Gianluigi Conti",
+        "websiteUrl": "https://github.com/glconti",
+        "privacyUrl": "https://github.com/glconti/jira-bot-teams",
+        "termsOfUseUrl": "https://github.com/glconti/jira-bot-teams"
+    },
+    "icons": {
+        "color": "jira_bot_96x96.png",
+        "outline": "jira_bot_20x20.png"
+    },
+    "name": {
+        "short": "Jira Help",
+        "full": "A bot for interacting with Innoveo Jira"
+    },
+    "description": {
+        "short": "A bot for Innoveo Jira",
+        "full": "A bot for Innoveo Jira"
+    },
+    "accentColor": "#235EA5",
+    "bots": [
+        {
+            "botId": "84a5baf4-3ad2-4643-b64a-4c9e30a97135",
+            "scopes": [
+                "team",
+                "personal"
+            ]
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}

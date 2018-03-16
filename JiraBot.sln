@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiraBot", "JiraBot\JiraBot.csproj", "{A064967F-7D1C-4A2D-A106-4760CA90DBB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bundle", "bundle", "{EB753373-7B09-4909-B6CB-E4B58F0A3467}"
+	ProjectSection(SolutionItems) = preProject
+		bundle\jira_bot_20x20.png = bundle\jira_bot_20x20.png
+		bundle\jira_bot_96x96.png = bundle\jira_bot_96x96.png
+		bundle\manifest.json = bundle\manifest.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

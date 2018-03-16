@@ -49,7 +49,7 @@ namespace JiraBot.MessageHandlers
 
                 var jira = Jira.CreateRestClient(JiraAddress, JiraUser, JiraApiToken);
 
-                var searches = tickets.Distinct().OrderBy(t => t)
+                var searches = tickets.Distinct()
                     .Select(t => new
                     {
                         Ticket = t,
