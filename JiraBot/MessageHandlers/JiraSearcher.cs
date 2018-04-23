@@ -16,6 +16,7 @@ using Atlassian.Jira;
 using JiraBot.Properties;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Newtonsoft.Json;
 
 namespace JiraBot.MessageHandlers
 {
@@ -83,6 +84,13 @@ namespace JiraBot.MessageHandlers
 
                 reply.AttachmentLayout = AttachmentLayoutTypes.List;
                 reply.Attachments = thumbnailCards;
+                reply.ChannelData = JsonConvert.SerializeObject(new
+                {
+                    notification = new
+                    {
+                        alert = false
+                    }
+                });
 
                 await context.PostAsync(reply);
             }
