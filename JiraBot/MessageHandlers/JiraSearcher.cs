@@ -16,6 +16,8 @@ using Atlassian.Jira;
 using JiraBot.Properties;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.Bot.Connector.Teams.Models;
+using Newtonsoft.Json.Linq;
 
 namespace JiraBot.MessageHandlers
 {
@@ -83,7 +85,7 @@ namespace JiraBot.MessageHandlers
 
                 reply.AttachmentLayout = AttachmentLayoutTypes.List;
                 reply.Attachments = thumbnailCards;
-
+                reply.ChannelData = JObject.FromObject(new TeamsChannelData(notification: new NotificationInfo(false)));
                 await context.PostAsync(reply);
             }
             catch (Exception e)
