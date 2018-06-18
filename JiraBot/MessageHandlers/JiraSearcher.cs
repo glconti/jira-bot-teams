@@ -55,7 +55,17 @@ namespace JiraBot.MessageHandlers
                     .Select(t => new
                     {
                         Ticket = t,
-                        Task = jira.Issues.GetIssueAsync(t)
+                        Task = Task.Run(async () =>
+                        {
+                            try
+                            {
+                                return await jira.Issues.GetIssueAsync(t);
+                            }
+                            catch (Exception)
+                            {
+                                return null;
+                            }
+                        })
                     }).ToArray();
 
                 await Task.WhenAll(searches.Select(t => t.Task));
