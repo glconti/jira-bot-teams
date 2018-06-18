@@ -23,6 +23,8 @@ namespace JiraBot.MessageHandlers
 {
     public class JiraSearcher : IMessageHandler
     {
+        private const string CarouselOption = "/carousel";
+
         private static readonly IReadOnlyList<string> InnerKeywords =
             WebConfigurationManager.AppSettings["JiraTicketKeywords"].Split(',').ToList();
 
@@ -74,7 +76,8 @@ namespace JiraBot.MessageHandlers
                 {
                     var issue = search.Task.Result;
 
-                    if (issue == null) return new ThumbnailCard(subtitle: search.Ticket, text: "Not found").ToAttachment();
+                    if (issue == null)
+                        return new ThumbnailCard(subtitle: search.Ticket, text: "Not found").ToAttachment();
 
                     var issueNumber = issue.Key.ToString();
                     var issueUrl = issue.Jira.Url + "browse/" + issueNumber;
@@ -93,7 +96,9 @@ namespace JiraBot.MessageHandlers
 
                 var reply = activity.CreateReply();
 
-                reply.AttachmentLayout = AttachmentLayoutTypes.List;
+                reply.AttachmentLayout = message.Contains(CarouselOption)
+                    ? AttachmentLayoutTypes.Carousel
+                    : AttachmentLayoutTypes.List;
                 reply.Attachments = thumbnailCards;
                 reply.ChannelData = JObject.FromObject(new TeamsChannelData(notification: new NotificationInfo(false)));
                 await context.PostAsync(reply);
