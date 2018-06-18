@@ -61,7 +61,7 @@ namespace JiraBot.MessageHandlers
                             {
                                 return await jira.Issues.GetIssueAsync(t);
                             }
-                            catch (Exception)
+                            catch
                             {
                                 return null;
                             }
@@ -74,7 +74,7 @@ namespace JiraBot.MessageHandlers
                 {
                     var issue = search.Task.Result;
 
-                    if (issue == null) new ThumbnailCard(subtitle: search.Ticket, text: "Not found").ToAttachment();
+                    if (issue == null) return new ThumbnailCard(subtitle: search.Ticket, text: "Not found").ToAttachment();
 
                     var issueNumber = issue.Key.ToString();
                     var issueUrl = issue.Jira.Url + "browse/" + issueNumber;
